@@ -1,0 +1,20 @@
+<div class="container">
+	<h1>Simple Date Converter</h1>
+	<form (ngSubmit)="onSubmit()" #heroForm="ngForm">
+		<div class="form-group">
+			<label for="date">Input RFC-3339 Formatted Date</label>
+			<br>
+			<label>Example: 2016-07-11T12:34:56.12+07:00</label>
+            <br><br>
+			<input type="text" class="form-control" id="date" required [(ngModel)]="model.date" name="date" #date="ngModel">
+		</div>
+		<br><br>
+		<div class="button">
+			<button type="submit" [disabled]="!heroForm.form.valid">Convert Date</button>
+		</div>
+		<br><br>
+		<div [hidden]="date.valid || date.pristine" class="alert-danger">
+			Field must be filled
+		</div>
+	</form>
+</div>
